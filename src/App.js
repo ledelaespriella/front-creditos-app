@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import Register from './pages/register';
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="/registro" element={<Register />} />
+      </Routes>
+      <footer class="my-2 pt-2 text-muted text-center text-small">
+        <p class="mb-1">Copyright © 2018 Banco Caja Social</p>
+        {/* <!-- <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul> --> */}
+      </footer>
+
+    </>
   );
 }
 
