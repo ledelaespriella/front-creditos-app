@@ -1,5 +1,6 @@
 import './App.css';
 import Register from './pages/register';
+import GestionUsuario from './pages/gestionUsuarios';
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <>
       <Routes>
         <Route path="/registro" element={<Register />} />
+        <Route path="/admin/usuarios" element={<GestionUsuario />} />
       </Routes>
       <footer class="my-2 pt-2 text-muted text-center text-small">
         <p class="mb-1">Copyright © 2018 Banco Caja Social</p>

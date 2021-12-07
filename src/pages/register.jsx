@@ -2,14 +2,16 @@ import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import { Checkbox, InputLabel, Input, InputAdornment, IconButton } from '@mui/material';
+import { Checkbox, Input, InputAdornment, IconButton } from '@mui/material';
 import { VisibilityOff, Visibility } from '@mui/icons-material';
 
 const schema = yup.object({
-    name: yup.string().required().min(2),
-    lastName: yup.string().required()
+    name: yup.string().required("Digite sus nombre").min(2),
+    lastName: yup.string().required("Digite sus apellidos"),
+    passw: yup.string().required("Digite su contraseña"),
+    passw2: yup.string().required("Digite su contraseña")
 
-}).required();
+});
 
 const Register = () => {
 
@@ -79,10 +81,11 @@ const Register = () => {
                         </div>
 
                         <div className="col-6">
-                            <label for="passw2" className="form-label">Contraseña</label>
+                            <label for="passw" className="form-label">Contraseña</label>
                             {/* <input {...register('passw')} type="password" className="form-control"></input> */}
                             <Input
-                                id="passw2"
+                                {...register('passw')}
+                                id="passw"
                                 type={values.showPassword ? 'text' : 'password'}
                                 value={values.password}
                                 className="form-control"
@@ -101,6 +104,7 @@ const Register = () => {
                                 }
                             >
                             </Input>
+                            <p className="text-danger">{errors.passw?.message}</p>
 
                             {/* <label for="passw" className="form-label">Contraseña</label>
                             <div className="input-group">
