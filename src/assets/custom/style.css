@@ -1,0 +1,55 @@
+#card{
+    max-width: 25rem;
+    background: linear-gradient(180deg, #2270af30 25%, #2270af75 50%, #2270af90 65%);
+    margin-left: 8rem;
+    height: 500px;
+    border: none;
+}
+
+.container-content{
+    height: 600px;
+    width: 100%;
+    background-image: url(
+        http://localhost:3000/leasing.jpg
+    );
+}
+
+#sesion{
+    background-color: #00b2fb;
+}
+
+.menu a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{    
+    color: rgb(218, 218, 218);
+}
+
+
+#sidebar-container{
+    height: 100%;
+}
+
+#sidebar-container .logo{
+    padding: .875rem 1.25rem;
+}
+
+#sidebar-container .menu{
+    width: 18rem;
+}
+
+.font-weight{
+    font-weight:lighter;
+}
+
+#tabla{
+    overflow-y: hidden;
+}
+
+@media(max-width:992px){
+    #sidebar-container{
+        display: none;
+    }
+}
