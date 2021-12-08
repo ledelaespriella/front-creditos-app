@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from './../components/navHome'
+import Nav from '../components/navBar'
 import Foot from './../components/footer'
 
 const Home = () =>{
