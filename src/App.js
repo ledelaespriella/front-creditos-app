@@ -1,6 +1,7 @@
 import './App.css';
 import Register from './pages/register';
 import GestionUsuario from './pages/gestionUsuarios';
+import ListPagos from './pages/simularPagos';
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -22,9 +23,9 @@ function App() {
 
         {/* Listado de rutas para el usuario final */}
         {/* <Route path="/creditos" element={<ListCreditos/>} />
-        <Route path="/prorroga" element={<Listprorroga/>} />
+        <Route path="/prorroga" element={<Listprorroga/>} /> */}
         <Route path="/creditos/pagos" element={<ListPagos/>} />
-        <Route path="/creditos/documentos" element={<Documentos/>} /> */}
+        {/* <Route path="/creditos/documentos" element={<Documentos/>} /> */}
 
         {/* Listado de rutas para el usuario administrador */}
         {/* <Route path="/admin" element={<Dashboard />} /> */}

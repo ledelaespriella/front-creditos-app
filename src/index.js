@@ -9,6 +9,7 @@ import $ from 'jquery';
 // eslint-disable-next-line
 import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import './assets/custom/style.css';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';

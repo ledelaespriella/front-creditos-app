@@ -6,6 +6,7 @@ const Users = (props) => {
 
     return (
         <>
+        
             <table className="table table-responsive table-bordered">
                 <thead>
                     <tr>
