@@ -1,25 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import HisPagos from '../components/pagos';
+import Nav from './../components/navBar';
+import Foot from '../components/footer';
 
 
 const HistorialDePagos = () => {
 
-    return <HisPagos/>
-
-    // const [users,setUsers]=useState([]);
-
-    // useEffect(() => {
-    //     fetch('http://localhost:3004/historial')
-    //     .then(response => response.json())
-    //     .then(data=>setUsers(data))
-    // },[]);
-
-    // return (
-    //     <>
-    //        <HisPagos data={users}/>
-    //     </>
-    // );
-
+    return(
+        <>
+        <Nav />
+        <HisPagos/>
+        <Foot />
+        </>
+    ) 
 };
 
 export default HistorialDePagos;

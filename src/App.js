@@ -9,6 +9,7 @@ import SolicitarCedito from './pages/solicitarCredito';
 import HistorialDePagos from './pages/HistorialPagos';
 //import Nav from './components/navBar'
 import MenuAdmin from './pages/menuAdmin';
+import GenDocumentos from './pages/gendocumentos';
 
 function App() {
   return (<>
@@ -16,6 +17,7 @@ function App() {
       <Route path='/' element={<Home/>}/>
       <Route path='/admin' element={<MenuAdmin/>}/>
       <Route path='/solicitarCredito' element={<SolicitarCedito/>}/>
+      <Route path='/generardocumentos' element={<GenDocumentos/>}/>
       <Route path='/historialpagos' element={<HistorialDePagos/>}/>
     </Routes>
   </>

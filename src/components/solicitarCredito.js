@@ -9,11 +9,12 @@ const SolCredito = () => {
     const schema = yup.object({
         valorSolicitado: yup.number().typeError('Se espera un valor numerico').required('Valor requerido'),
         numeroCuotas: yup.number().positive().integer().required('Debe seleccionar numero de cuotas'),
-      }).required();
+    }).required();
 
     const { register, handleSubmit, formState:{errors} } = useForm({
         resolver: yupResolver(schema)
     });
+
     const onSubmit = data => console.log(data);
 
     let cuotas = [];
@@ -26,82 +27,60 @@ const SolCredito = () => {
 
     return (
         <>
-        <div className="mb-3">
-        <label for="valorSolicitado" className="form-label">Valor solicitado</label>
-        <input {...register("valorSolicitado")} />
-        <p>{errors.valorSolicitado?.message}</p>
-        </div>
-        <div class="mb-3">
-        <label for="numeroCuotas" className="form-label">Valor solicitado</label>
-        <select {...register("numeroCuotas")}>
-                    <p>{errors.numeroCuotas?.message}</p>
-                    <option value="default" disabled hidden>
-                        Seleccione plazo
-                    </option>
-                        {cuotas.map(cuota=>(
-                            <option value={cuota}>{cuota}</option>
-                        ))}
-        </select>
-        </div>
-        {/* <aside className="container jutify-content: center">
-        <div className="py-5 text-center">
-            <h2>Solicitud de credito leasing</h2>
-        </div>
-        
-        <form onSubmit={handleSubmit(onSubmit)}>
         <div className="container-fluid">
-        <div className="row">
-            <div className="col-6 justify-content-start">
-            <div className="col-sm-6">
-                <label for="valorSolicitado" className="form-label">Valor solicitado</label>
-            </div>
-            </div>
-            <div className="row 12">
-                <div className="col-sm-6">
-                    <input {...register("valorSolicitado")} />
-                    <p>{errors.valorSolicitado?.message}</p>
+            <div className="row d-flex justify-content-center align-items-center"> 
+                <div className="col-6">
+                    <h3>Solicitud Credito Leasing</h3>
                 </div>
             </div>
-            <div className="row 12">
-                <div className="col-sm-6">
-                    <label for="numeroCuotas" className="form-label">Valor solicitado</label>
+            <div className="row d-flex justify-content-center align-items-center"> 
+                <div className="col-4">   
+            <form>
+                <div className="mb-3">
+                    <label for="valorSolicitado" className="form-label">Valor solicitado</label>
+                    <div className="row">
+                        <div className="col-sm-6">
+                        <   input className="form-control" {...register("valorSolicitado")} />
+                        <p>{errors.valorSolicitado?.message}</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div className="row 12">
-                <div className="col-sm-6">
-                    <select {...register("numeroCuotas")}>
-                    <p>{errors.numeroCuotas?.message}</p>
-                    <option value="default" disabled hidden>
-                        Seleccione plazo
-                    </option>
-                        {cuotas.map(cuota=>(
-                            <option value={cuota}>{cuota}</option>
-                        ))}
-                        {/* <option value={cuotas.map}>{cuotas.map}</option> */}
-                        
-                    {/* </select>
+                <div class="mb-3">
+                    <div className="row">
+                        <div className="col-sm-6">
+                            <label for="numeroCuotas" className="form-label">Valor solicitado</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div className="row">
+                            <div className="col-sm-6">
+                                <select className="form-control" {...register("numeroCuotas")}>
+                                <p>{errors.numeroCuotas?.message}</p>
+                    <               option value="default" disabled hidden>
+                                        Seleccione plazo
+                                    </option>
+                                    {cuotas.map(cuota=>(
+                                    <option value={cuota}>{cuota}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row d-flex justify-content-center align-items-center"> 
+                        <div className="col-6">
+                            <button className="btn btn-primary form-control justify-content-md-start" type="submit">
+                                Solicitar
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div className="row 12">
-                <div className="col-sm-6">
-                    <button className="btn btn-primary" type="submit">
-                    Solicitar
-                    </button>
-                </div>
-            </div>
-            </div>
-            
-            </div>
-        </form>
-        <div className="col-6 justify-content-end">
-            <img
-            className="ms-4 my-1"
-            src="http://localhost:3000/caja-social-logo.png"
-            alt=""
-            style={{ height: "70px", width: "auto" }}
-          />
-            </div>
-        </aside> */} 
+            </form>
+        </div>
+        <div className="col-4">
+            <img src="https://unexplicamx.com/wp-content/uploads/2021/05/Solicitud-de-Credito-Formato-Word.jpg" class="img-fluid" class="img-fluid" alt="..."/>
+        </div>
+        </div>
+        </div>
         </>
     )
 }
