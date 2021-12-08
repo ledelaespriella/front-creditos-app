@@ -8,32 +8,32 @@ const solicitarPlazo = () => {
   <Nav/>
     <section className="bg-light">
       <div className="container">
-        <h1>Solicitar prórroga</h1>
+        
 
         <div class="row">
           
           <div class="col-6">
-      
+          <h1>Solicitar prórroga</h1>
             <div class="row">
-              <div class="col-6">
+              <div class="col-sm-6">
                 <label>Producto</label>
                 <input type="text" className="form-control"></input>
               </div>
-              <div class="col-6">
+              <div class="col-sm-6">
                 <label>Cuotas a aplazar</label>
                 <input type="text" className="form-control"></input>
               </div>
             </div>
 
             <div class="row" >
-              <label>Cuotas a aplazar</label>
+              <label>Motivo</label>
               <textarea rows="4" cols="50" className="form-control"></textarea>
             </div>
 
           </div>
 
           <div class="col-6">
-            <img src="https://centrourbano.com/revista/wp-content/uploads/Cartera-de-credito-a-vivienda-crece-8.4-en-febrero-BBVA-635x635.jpg" width="300" height="300"></img>
+            <img src="https://retos-directivos.eae.es/wp-content/uploads/2017/12/iStock-540376942-e1514130352114.jpg" class="img-fluid" alt="Responsive image"></img>
           </div>
 
         </div>

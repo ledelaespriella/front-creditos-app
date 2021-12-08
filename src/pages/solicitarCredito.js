@@ -9,12 +9,12 @@ const solicitarCredito = () => {
         <Nav/>
         <section className="bg-light">
     <div className="container">
-      <h1>Solicitar crédito</h1>
+     
 
       <div class="row">
         
         <div class="col-6">
-    
+        <h1>Solicitar crédito</h1>
           <div class="row">
             <div class="col-sm-6">
               <label>Valor solocitado</label>
@@ -27,8 +27,8 @@ const solicitarCredito = () => {
           </div>
           <div class="row">
             
-            <div class="col-sm-6">
-            <label></label>
+            <div class="col-sm-6 mt-3">
+            
               <button type="button" className="form-control" >Generar</button>
             </div>
             
@@ -39,7 +39,7 @@ const solicitarCredito = () => {
         </div>
 
         <div class="col-6">
-          <img src="https://gestion.pe/resizer/ml7IA6qY1GXWPUZzukZe7mIohAM=/1200x800/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/5FDOFYHKIFDMLBVARLRMUBLPPI.jpg" width="300" height="300"></img>
+          <img src="https://gestion.pe/resizer/ml7IA6qY1GXWPUZzukZe7mIohAM=/1200x800/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/5FDOFYHKIFDMLBVARLRMUBLPPI.jpg"class="img-fluid" alt="Responsive image"></img>
         </div>
 
       </div>

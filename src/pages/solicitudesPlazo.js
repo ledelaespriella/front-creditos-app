@@ -9,6 +9,7 @@ const solicutesdPlazo = () => {
     <Nav/>
     <h1>Solicitudes de plazo</h1>
     <Contenedor/>
+    
     <Contenedor/>
     
     <Foot/>

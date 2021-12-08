@@ -3,7 +3,7 @@ import React from "react";
 const Header = () => {
   return ( 
 
-    <div className="container">
+    <div className="container mb-3" style={{backgroundColor: "#ECECEC"}}>
    
       
     <div class="border">

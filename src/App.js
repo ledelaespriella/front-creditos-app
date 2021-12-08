@@ -5,7 +5,7 @@ import {Routes, Route} from 'react-router-dom'
 import { Fragment } from 'react';
 import Nav from './components/navBar'
 import Solicitudes_plazo from './pages/solicitudesPlazo';
-import Solicitudes_plazo from './pages/solicitarCredito';
+import SolicitarCredito from './pages/solicitarCredito';
 import Generar_certificado from './pages/generarCertificado';
 import Solicitar_plazo from './pages/solicitarPlazo';
 
@@ -14,9 +14,10 @@ function App() {
   return (<>
     <Routes>
       <Route path='/solicitudesPlazo' element={<Solicitudes_plazo/>}/>
-      <Route path='/solicitarCredito' element={<solicitar_credito/>}/>
+      <Route path='/solicitarCredito' element={<SolicitarCredito/>}/>
       <Route path='/generarCertificado' element={<Generar_certificado/>}/>
       <Route path='/solicitarPlazo' element={<Solicitar_plazo/>}/>
+      <Route path="/adminUI/prorroga" element={<Solicitudes_plazo/>} />
     </Routes>
   </>
   )
