@@ -10,6 +10,7 @@ import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'bootstrap/dist/js/bootstrap.bundle'
 import 'popper.js'
+import 'iconify'
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
