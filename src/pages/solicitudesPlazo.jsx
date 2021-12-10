@@ -1,7 +1,7 @@
 import React from "react";
-import Nav from "../components/navBar";
-import Foot from "../components/footer";
-import SideBar from "../components/sideBar";
+import Nav from "../components/sections/navBar";
+import Foot from "../components/sections/footer";
+
 import Contenedor from "../components/contenedorSolicitudes"
 
 const solicutesdPlazo = () => {
