@@ -4,10 +4,11 @@ import GestionUsuario from './pages/gestionUsuarios';
 import ListPagos from './pages/simularPagos';
 
 import Home from './pages/home';
-import Solicitudes_plazo from './pages/solicitudesPlazo';
+import SolicitudesPlazo from './pages/solicitudesPlazo';
 import SolicitarCredito from './pages/solicitarCredito';
-import Generar_certificado from './pages/generarCertificado';
-import Solicitar_plazo from './pages/solicitarPlazo';
+import GenerarCertificado from './pages/generarCertificado';
+import SolicitarPlazo from './pages/solicitarPlazo';
+import Dashboard from './pages/dashboard';
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -29,22 +30,21 @@ function App() {
 
         {/* Listado de rutas para el usuario final */}
         <Route path='/creditos' element={<SolicitarCredito/>}/>
-        <Route path='/solicitarPlazo' element={<Solicitar_plazo/>}/>
-        <Route path='/creditos/prorroga' element={<Solicitudes_plazo/>}/>
+        <Route path='/solicitarPlazo' element={<SolicitarPlazo/>}/>
+        <Route path='/creditos/prorroga' element={<SolicitudesPlazo/>}/>
         <Route path="/creditos/pagos" element={<ListPagos/>} />
         {/* <Route path="/creditos/documentos" element={<Documentos/>} /> */}
-        <Route path='/creditos/certificado' element={<Generar_certificado/>}/>
+        <Route path='/creditos/certificado' element={<GenerarCertificado/>}/>
 
 
         {/* Listado de rutas para el usuario administrador */}
-        {/* <Route path="/admin" element={<Dashboard />} /> */}
+        <Route path="/admin" element={<Dashboard />} />
         <Route path="/admin/usuarios" element={<GestionUsuario />} />
 
       </Routes>
 
     </>
   );
-
 
 }
 

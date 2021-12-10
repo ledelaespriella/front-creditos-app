@@ -48,6 +48,12 @@ a:hover{
     overflow-y: hidden;
 }
 
+@media(max-width:1200px){
+    #logo{
+       height: 55px !important;
+    }
+}
+
 @media(max-width:992px){
     #sidebar-container{
         display: none;
