@@ -1,13 +1,13 @@
 import React from 'react';
-import Nav from '../components/navBar'
-import Foot from './../components/footer'
+import Nav from '../components/sections/navBar'
+import Foot from '../components/sections/footer'
+import Acceso from '../components/buttons/acceso';
 
 const Home = () =>{
     return<>
-        <Nav/>
+        <Nav button = {<Acceso/>} img={'http://localhost:3000/caja-social-logo.png'}/>
         <section className='container-fluid p-0'>
             <div className='w-100 container-content d-flex justify-content-start'>
-                {/* <img src="http://localhost:3001/leasing.jpg" style={{width: '1366px'}}/> */}
                 <div id='card' className="card text-light mb-3 my-auto" >
                     <div className="card-header">
                         <h1 className="card-title">Credito leasing</h1>

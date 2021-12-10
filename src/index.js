@@ -5,8 +5,6 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/custom/bootstrap.min.css';
 import './assets/custom/style.css'
-import $ from 'jquery';
-import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'bootstrap/dist/js/bootstrap.bundle'
 import 'popper.js'

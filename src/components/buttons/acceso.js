@@ -1,7 +1,7 @@
 import React from "react";
 import { Popover, Button, OverlayTrigger } from "react-bootstrap";
 
-const acceso = (()=>{
+const Acceso = (()=>{
     return <section>
         <OverlayTrigger
               trigger="click"
@@ -55,4 +55,4 @@ const acceso = (()=>{
     </section>
 })
 
-export default acceso;
+export default Acceso;

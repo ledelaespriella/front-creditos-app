@@ -3,16 +3,30 @@ import './App.css';
 import Home from './pages/home'
 import {Routes, Route} from 'react-router-dom'
 import { Fragment } from 'react';
-import Nav from './components/navBar'
-import MenuAdmin from './pages/menuAdmin';
+import Dashboard from './pages/dashboard';
 
 function App() {
-  return (<>
+  return (<Fragment>
     <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path='/admin' element={<MenuAdmin/>}/>
+      {/* Rutas de los usuarios */}
+      <Route path='/' element={<Home/>}></Route>
+      <Route path=''></Route>
+      {/*  */}
+      <Route path='admin' element={<Dashboard/>}></Route>
+      <Route></Route>
+      <Route></Route>
+      <Route></Route>
+      <Route></Route>
+      {/*  */}
+      <Route></Route>
+      <Route></Route>
+      <Route></Route>
+      <Route></Route>
+      {/*  */}
+      <Route></Route>
+      <Route></Route>
     </Routes>
-  </>
+  </Fragment>
   )
 }
 
