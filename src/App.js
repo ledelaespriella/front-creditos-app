@@ -23,7 +23,7 @@ function App() {
         {/* Listado de rutas para el Usuario Interno */}
         {/* <Route path="/adminUI" element={<Dashboard />} /> */}
         {/* <Route path="/adminUI/creditos" element={<ListCreditos/>} /> */}
-        <Route path="/adminUI/prorroga" element={<Solicitudes_plazo/>} />
+        {/* <Route path="/adminUI/prorroga" element={<Solicitudes_plazo/>} /> */}
         {/* <Route path="/adminUI/creditos/vigentes" element={<ListCreditosVigentes/>} /> */}
         {/* <Route path="/adminUI/creditos/pagos" element={<HistorialPagos/>} /> */}
 
