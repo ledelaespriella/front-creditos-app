@@ -1,15 +1,17 @@
 import React, { Fragment } from "react";
 import MenuAdmin from "../menus/menuAdmin";
-import MenuFinalUser from "../menus/menuFinalUser";
+import MenuInt from "../menus/menuIntUser"
 
 let menu = undefined
 
 const SideBar = (props) => {
 
-  if (props.user == 'final') {
-    menu = <MenuFinalUser/>
-  }else{
+  console.log(props.user)
+
+  if (props.user == 'Admin') {
     menu = <MenuAdmin/>
+  }else{
+    menu = <MenuInt/>
   }
   
   return (

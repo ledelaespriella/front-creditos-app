@@ -1,5 +1,6 @@
-import React from "react";
+import React, {Link} from "react";
 import { Popover, Button, OverlayTrigger } from "react-bootstrap";
+
 
 const Acceso = (()=>{
     return <section>
@@ -33,8 +34,8 @@ const Acceso = (()=>{
                       />
                       <label for="floatingPassword">Password</label>
                     </div>
-                    <div className="mt-3 d-flex justify-content-center">
-                      <a className="btn btn-primary" href="">
+                    <div className="mt-3 d-flex justify-content-center">  
+                      <a className="btn btn-primary" href ='/usuarios'>
                         Iniciar sesion
                       </a>
                     </div>

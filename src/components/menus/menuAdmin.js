@@ -1,4 +1,6 @@
 import React, { Fragment } from "react";
+import { Link } from 'react-router-dom';
+import { PersonOutline, PeopleOutline, MailOutline,  ReaderOutline } from 'react-ionicons'
 
 const MenuAdmin = () => {
   return (
@@ -9,47 +11,74 @@ const MenuAdmin = () => {
             id="logo"
             src="http://localhost:3000/caja-social-white.png"
             alt=""
-            style={{ height: "70px" }}
+            style={{ height: "60px" }}
           />
         </div>
-        <div class="menu w-100 pt-3">
-          <a
-            href="#"
-            class="fs-4 font-weight d-block text-light ps-5 pb-4 border-0"
+        <div class="menu w-100 mt-5">
+          <Link
+            to="/admin/creditos"
+            class="fs-4 font-weight d-block text-light ps-2 pb-4 border-0"
           >
-            <i class="icon ion-md-apps lead mr-2"></i>
+            <MailOutline
+              color={"#00000"}
+              height="30px"
+              width="30px"
+              className="p-2"
+            />
             Solicitudes de credito
-          </a>
+          </Link>
 
-          <a
-            href="#"
-            class="fs-4 font-weight d-block text-light ps-5 pb-4 border-0"
+          <Link
+            to="/admin/prorroga"
+            class="fs-4 font-weight d-block text-light ps-2 pb-4 border-0"
           >
-            <i class="icon ion-md-people lead mr-2"></i>
+            <MailOutline
+              color={"#00000"}
+              height="30px"
+              width="30px"
+              className="p-2"
+            />
             Solicitudes de prorroga
-          </a>
+          </Link>
 
-          <a
-            href="#"
-            class="fs-4 font-weight d-block text-light ps-5 pb-4 border-0"
+          <Link
+            to="/admin/history"
+            class="fs-4 font-weight d-block text-light ps-2 pb-4 border-0"
           >
-            <i class="icon ion-md-stats lead mr-2"></i>
+            <ReaderOutline
+              color={"#00000"}
+              height="30px"
+              width="30px"
+              className="p-2"
+            />
             Historial de pago
-          </a>
-          <a
-            href="#"
-            class="fs-4 font-weight d-block text-light ps-5 pb-4 border-0"
+          </Link>
+
+          <Link
+            to="/admin/usuarios"
+            class="fs-4 font-weight d-block text-light ps-2 pb-4 border-0"
           >
-            <i class="icon ion-md-person lead mr-2"></i>
+            < PeopleOutline
+              color={"#00000"}
+              height="30px"
+              width="30px"
+              className="p-2"
+            />
             Usuarios internos
-          </a>
-          <a
-            href="#"
-            class="fs-4 font-weight d-block text-light ps-5 pb-4 border-0"
+          </Link>
+
+          <Link
+            to="/admin/usuariosfinales"
+            class="fs-4 font-weight d-block text-light ps-2 pb-4 border-0"
           >
-            <i class="icon ion-md-settings lead mr-2 text-black"></i>
+            <PersonOutline
+              color={"#00000"}
+              height="30px"
+              width="30px"
+              className="p-2"
+            />
             Mi cuenta
-          </a>
+          </Link>
         </div>
       </div>
     </Fragment>

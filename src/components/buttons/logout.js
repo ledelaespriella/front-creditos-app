@@ -1,11 +1,11 @@
 import React from "react";
 
-const logOut = (()=>{
+const LogOut = (()=>{
     return <>
-        <button className='btn btn-primary'>
+        <a href="/" className='btn btn-primary'>
             Cerrar sesion
-        </button>
+        </a>
     </>
 })
 
-export default logOut;
+export default LogOut;
