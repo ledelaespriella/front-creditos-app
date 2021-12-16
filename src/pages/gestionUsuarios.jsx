@@ -19,18 +19,20 @@ const GestionUsuario = () => {
     return (
         <>
 
-            <div className="row w-100 m-0 d-flex align-content-stretch flex-wrap">
+            <div className="row vh-100 w-100 m-0">
                 <div className="col-3 p-0">
                     <SideBar user='Admin' />
                 </div>
                 <div className="col-12 col-lg-9 p-0 container-fluid">
-
-                    <Nav button={<LogOut />} />
-                    <div className="m-3">
+                    <div className="mx-2 row">
+                        <Nav button={<LogOut />} />
+                    </div>
+                    <div className="mx-sm-3 my-sm-4">
                         <Users data={users} />
                     </div>
-                    <Foot />
-
+                    <div className="bottom-0 w-100">
+                        <Foot />
+                    </div>
                 </div>
             </div>
 

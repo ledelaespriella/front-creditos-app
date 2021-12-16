@@ -7,7 +7,7 @@ const Users = (props) => {
     return (
         <>
         
-            <table className="table table-responsive table-bordered">
+            <table className="table table-responsive table-bordered  table-hover">
                 <thead>
                     <tr>
                         <th className="col-2" scope="col">#</th>
