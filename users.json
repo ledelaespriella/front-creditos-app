@@ -11,7 +11,9 @@
             "dateExp": "03/12/2015",
             "incomes": 3000000,
             "expenses": 1850000,
+            "role": "final",
             "politic": true
+            
         }
     ]
 }

@@ -1,5 +1,6 @@
-import React, {Link} from "react";
+import React from "react";
 import { Popover, Button, OverlayTrigger } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 
 const Acceso = (()=>{
@@ -35,9 +36,9 @@ const Acceso = (()=>{
                       <label for="floatingPassword">Password</label>
                     </div>
                     <div className="mt-3 d-flex justify-content-center">  
-                      <a className="btn btn-primary" href ='/usuarios'>
+                      <Link className="btn btn-primary" to ='/usuarios'>
                         Iniciar sesion
-                      </a>
+                      </Link>
                     </div>
 
                     <div className="d-flex justify-content-center">

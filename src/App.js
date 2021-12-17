@@ -21,42 +21,62 @@ function App() {
     <>
       <Routes>
         {/* Listado de rutas de todos los usuarios */}
-        <Route path="/" element={<Home />} />
-        <Route path="/usuarios" element={<Usuarios />} />
+        <Route
+          path="/"
+          element={<Home />}
+        />
+        <Route
+          path="/usuarios"
+          element={<Usuarios />}
+        />
         {/* <Route path="/recuperacion" element={<ResetPaswword />} /> */}
 
         {/* Listado de rutas para el Usuario Interno */}
-        <Route path="/adminUI" element={<Dashboard user={"UI"}/>} />
-         <Route
-          path="/adminUI/prorroga"
-          element={<Dashboard user='UI' page={<Solicitudes_plazo/>}/>}
+        <Route
+          path="/adminUI"
+          element={<Dashboard user={"UI"} />}
         />
-        {/* <Route path="/adminUI/creditos" element={<ListCreditos/>} /> */}
-        {/* <Route path="/adminUI/creditos/vigentes" element={<ListCreditosVigentes/>} /> */}
-        {/* <Route path="/adminUI/creditos/pagos" element={<HistorialPagos/>} /> */}
 
-      
+        <Route
+          path="/adminUI/prorroga"
+          element={<Dashboard user="UI" page={<Solicitudes_plazo />} />}
+        />
+        {/* <Route path="/adminUI/creditos" element={<ListCreditos />} />
+        <Route path="/adminUI/creditos/vigentes" element={<ListCreditosVigentes />} />
+        <Route path="/adminUI/creditos/pagos" element={<HistorialPagos />} /> */}
+
         {/* Listado de rutas para el usuario final */}
         <Route
           path="/usuariofinal"
           element={<MenuFinal page={<Bienvenido />} />}
         />
-        <Route path="/creditos" element={<MenuFinal page={<Creditos />} />} />{" "}
-        {/*En desarrollo*/}
+
         <Route
-          path="/creditos/solicitar"
+          path="/usuariofinal/creditos"
+          element={<MenuFinal page={<Creditos />} />}
+        />
+        {/*En desarrollo*/}
+
+        <Route
+          path="/usuariofinal/creditos/solicitar"
           element={<MenuFinal page={<SolicitarCredito />} />}
         />
+
         <Route
-          path="/creditos/prorroga"
+          path="/usuariofinal/creditos/pagos"
+          element={<MenuFinal page={<ListPagos />} />}
+        />
+
+        <Route
+          path="/usuariofinal/creditos/prorroga"
           element={<MenuFinal page={<Solicitar_plazo />} />}
         />
-        <Route path="/creditos/pagos" element={<MenuFinal />} />
+
         <Route
-          path="/creditos/documentos"
+          path="/usuariofinal/creditos/documentos"
           element={<MenuFinal page={<Documents />} />}
-        />{" "}
-        {/*En desarrollo*/}
+        />{/*En desarrollo*/}
+
         <Route
           path="/creditos/certificado"
           element={<MenuFinal page={<Generar_certificado />} />}
@@ -65,17 +85,18 @@ function App() {
         {/* Listado de rutas para el usuario administrador */}
         <Route
           path="/admin"
-          element={<Dashboard user='Admin'/>}
+          element={<Dashboard user="Admin" />}
         />
+
         <Route
           path="/admin/prorroga"
-          element={<Dashboard user='Admin' page={<Solicitudes_plazo/>}/>}
+          element={<Dashboard user="Admin" page={<Solicitudes_plazo />} />}
         />
+
         <Route
           path="/admin/usuarios"
-          element={<Dashboard user='Admin' page={<GestionUsuario />} />}
+          element={<Dashboard user="Admin" page={<GestionUsuario />} />}
         />
-        {/* <Route path="/admin" element={<Dashboard />} /> */}
       </Routes>
     </>
   );
