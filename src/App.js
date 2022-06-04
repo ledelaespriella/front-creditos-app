@@ -36,7 +36,6 @@ function App() {
         {/* <Route path="/creditos/documentos" element={<Documentos/>} /> */}
         <Route path='/creditos/certificado' element={<GenerarCertificado/>}/>
 
-
         {/* Listado de rutas para el usuario administrador */}
         <Route path="/admin" element={<Dashboard />} />
         <Route path="/admin/usuarios" element={<GestionUsuario />} />
