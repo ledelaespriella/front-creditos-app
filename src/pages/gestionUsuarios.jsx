@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Users from "./../components/TableUsers";
+import Users from "../components/TableUsers";
 
 const GestionUsuario = () => {
     const [users, setUsers] = useState([]);

@@ -1,0 +1,134 @@
+/*ROOT*/
+
+:root {
+    /*ANIMACIONES*/
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all .7s ease;
+}
+
+/* BLOQUES */
+.sidebar {
+    height: 100%;
+    transition: var(--tran-05);
+}
+
+.profile {
+    position: relative;
+    width: 100%;
+    height: 91px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    box-shadow: 0px 4px 4px hsla(0, 0%, 0%, 0.25);
+    z-index: 1;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    transition: var(--tran-05);
+}
+
+.toggle:hover {
+    height: 34px;
+    width: 34px;
+    transition: var(--tran-03);
+}
+
+.menu-bar {
+    width: 100%;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+/* ELEMENTOS */
+
+.profile__avatar {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+}
+
+.profile__text {
+    margin-right: 28px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    transition: var(--tran-05);
+}
+
+.profile__title {
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.profile__subtitle {
+    font-size: 1em;
+    font-weight: 300;
+}
+
+.menu-bar__items {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.menu-bar__item {
+    list-style: none;
+    width: 100%;   
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.menu-bar__item:hover {
+    background-color: #2c99ff
+}
+
+.menu-bar__link {
+    text-decoration: none;
+}
+
+.menu-bar__item-container {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}
+
+.menu-bar__item-icon{
+    height: 48px;
+    width: 48px;
+}
+
+/* MODIFICADORES */
+
+.sidebar--close {
+    width: 80px;
+}
+
+.sidebar--open {
+    width: 250px;
+}
+
+.toggle--rotate {
+    transform: translateY(-50%) rotate(180deg);
+    box-shadow: 0px -4px 4px hsla(0, 0%, 0%, 0.25);
+}
+
+.hide {
+    display: none !important;
+}

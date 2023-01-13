@@ -1,243 +1,333 @@
-import React from "react";
-import { useForm, Controller } from "react-hook-form";
+import React, { useEffect } from "react";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { Checkbox, Input, InputAdornment, IconButton } from "@mui/material";
-import { VisibilityOff, Visibility } from "@mui/icons-material";
 
+//Componentes   
+import Header from "../components/sections/Header";
+
+// Imagenes
+import CajaSocialLogoSmFormat from '../assets/images/banco-caja-sm-format.png';
+
+//Estilos
+import '../assets/custom/Register.css'
+
+const requireMessage = 'campo obligarorio *'
 const schema = yup.object({
-    name: yup.string().required("Digite sus nombre").min(2),
-    lastName: yup.string().required("Digite sus apellidos"),
-    passw: yup.string().required("Digite su contraseña"),
-    passw2: yup.string().required("Digite su contraseña"),
-});
+  //Personales
+  name: yup.string().required(requireMessage).min(2),
+  lastName: yup.string().required(requireMessage),
+  typeId: yup.string().required(requireMessage),
+  id: yup.number().typeError('ingrese un valor numerico').required(requireMessage),
+  //Finanzas
+  dateExp: yup.date().typeError('ingrese un valor de tipo fecha').required(requireMessage),
+  dateBirth: yup.date().typeError('ingrese un valor de tipo fecha').required(requireMessage),
+  incomes: yup.number().typeError('ingrese un valor numerico').required(requireMessage),
+  expenses: yup.number().typeError('ingrese un valor numerico').required(requireMessage),
+  //Acceso
+  email: yup.string().email('ingresa un correo electronico valido').required(requireMessage),
+  password: yup.string().required(requireMessage),
+  password2: yup.string().required(requireMessage),
+}).required();
 
 const Register = () => {
-    const [values, setValues] = React.useState({
-        amount: "",
-        password: "",
-        weight: "",
-        weightRange: "",
-        showPassword: false,
+  const [values, setValues] = React.useState({
+    step: 0,
+    showPassword: false,
+  });
+
+  const handleClickShowPassword = () => {
+    setValues({
+      ...values,
+      showPassword: !values.showPassword,
     });
+  };
 
-    const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-    };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    trigger,
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
-    const handleClickShowPassword = () => {
-        setValues({
-            ...values,
-            showPassword: !values.showPassword,
-        });
-    };
+  const handleSteps = async (e) => {
+    if (values.step === 0) {
+      if (
+        !await trigger('name') ||
+        !await trigger('lastName') ||
+        !await trigger('id') ||
+        !await trigger('typeId')
+      ) {
+        await trigger('name')
+        await trigger('lastName')
+        await trigger('id')
+        await trigger('typeId')
+        return;
+      } else {
+        if (e.target.name === 'next') {
+          if (values.step < 2) {
+            setValues({
+              ...values,
+              step: values.step + 1
+            })
+          }
+        } else if (e.target.name === 'prev') {
+          if (values.step > 0) {
+            setValues({
+              ...values,
+              step: values.step - 1
+            })
+          }
+        }
+      }
+    } else if (values.step === 1) {
+      if (
+        !await trigger('dateExp') ||
+        !await trigger('dateBirth') ||
+        !await trigger('incomes') ||
+        !await trigger('expenses')
+      ) {
+        await trigger('name')
+        await trigger('lastName')
+        await trigger('incomes')
+        await trigger('expenses')
+        return;
+      } else {
+        if (e.target.name === 'next') {
+          if (values.step < 2) {
+            setValues({
+              ...values,
+              step: values.step + 1
+            })
+          }
+        } else if (e.target.name === 'prev') {
+          if (values.step > 0) {
+            setValues({
+              ...values,
+              step: values.step - 1
+            })
+          }
+        }
+      }
+    } else if (values.step === 2) {
+      if (
+        !await trigger('email') ||
+        !await trigger('password')
 
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
-
-    const {
-        register,
-        handleSubmit,
-        control,
-        formState: { errors },
-    } = useForm({
-        resolver: yupResolver(schema),
-    });
-
-    const onSubmit = (data) => {
-        console.log(data);
-    };
+      ) {
+        await trigger('email');
+        await trigger('password');
+        return;
+      } else {
+        if (e.target.name === 'next') {
+          if (values.step < 2) {
+            setValues({
+              ...values,
+              step: values.step + 1
+            })
+          }
+        } else if (e.target.name === 'prev') {
+          if (values.step > 0) {
+            setValues({
+              ...values,
+              step: values.step - 1
+            })
+          }
+        }
+      }
+    }
+  }
 
     return (
-        <>
-            <div className="container">
-                <div className="py-5 text-center">
-                    <h2>Registro</h2>
-                    <p className="lead mt-3">
-                        Para acceder a los productos ofrecidos por el Banco Caja Social, por
-                        favor ingrese los siguientes datos:
-                    </p>
+      <>
+        <div className="d-flex flex-grow-1 flex-column h-100">
+          <Header />
+          <div className="container-fluid d-flex justify-content-center align-items-center h-100 py-3">
+            <div className="container h-100 bg-white">
+              <div className="row h-100 shadow-sm">
+                <div className="col-12 col-lg-8 h-100 d-flex flex-column justify-content-center py-3">
+                  <h1 className="text-primary text-center fw-bold">Registro</h1>
+                  <form onSubmit={handleSubmit((d) => console.log(d))}>
+                    <div className="w-100 h-100 flex-column d-flex justify-content-center align-items-center">
+                      <div className={(values.step === 0 ? "d-flex" : "d-none ") + " flex-column justify-content-center align-items-center w-100 h-100 overflow-auto"}>
+                        <div className="w-75 ">
+                          <label htmlFor="nombres" className="form-label text-primary mb-0">
+                            Nombres
+                          </label>
+                          <input
+                            {...register("name")}
+                            type="text"
+                            className="form-control"
+                            id="nombres"
+                          ></input>
+                          <p className="text-danger fs-6 fw-bold mb-0">{errors.name?.message && errors.name?.message}</p>
+                        </div>
+
+                        <div className="w-75">
+                          <label htmlFor="appelidos" className="form-label text-primary mb-0">
+                            Apellidos
+                          </label>
+                          <input
+                            {...register("lastName")}
+                            type="text"
+                            className="form-control"
+                            id="apellidos"
+                          ></input>
+                          {errors.lastName?.message && <p className="text-danger fs-6 fw-bold mb-0">{errors.lastName?.message}</p>}
+                        </div>
+
+                        <div className="w-75">
+                          <label htmlFor="typeId" className="form-label text-primary mb-0">
+                            Tipo de documento
+                          </label>
+                          <select {...register("typeId")} id="typeId" className="form-select text-primary">
+                            <option value="">Seleccione un tipo de documento</option>
+                            <option value="cc" className="text-primary">Cedula de ciudadania</option>
+                            <option value="pas" className="text-primary">Pasaporte</option>
+                            <option value="ce" className="text-primary">Cedula de Estranjeria</option>
+                          </select>
+                          {errors.typeId?.message && <p className="text-danger fs-6 fw-bold mb-0">{errors.typeId?.message}</p>}
+                        </div>
+
+                        <div className="w-75">
+                          <label htmlFor="id" className="form-label text-primary mb-0">
+                            Numero de documento
+                          </label>
+                          <input
+                            {...register("id")}
+                            type="number"
+                            className="form-control"
+                            id="id"
+                          ></input>
+                          {errors.id?.message && <p className="text-danger fs-6 fw-bold mb-0">{errors.id?.message}</p>}
+                        </div>
+                      </div>
+
+                      <div className={(values.step === 1 ? "d-flex" : "d-none ") + " flex-column justify-content-center align-items-center w-100 h-100 overflow-auto"}>
+                        <div className="w-75">
+                          <label htmlFor="dateExp" className="form-label text-primary mb-0">
+                            Fecha de expedición
+                          </label>
+                          <input
+                            {...register("dateExp")}
+                            type="date"
+                            className="form-control"
+                            id="dateExp"
+                          ></input>
+                          {errors.dateExp?.message && <p className="text-danger fs-6 fw-bold mb-0">{errors.dateExp?.message}</p>}
+                        </div>
+
+                        <div className="w-75  ">
+                          <label htmlFor="dateBirth" className="form-label text-primary mb-0">
+                            Fecha de nacimiento
+                          </label>
+                          <input
+                            {...register("dateBirth")}
+                            type="date"
+                            className="form-control"
+                            id="dateBirth"
+                          ></input>
+                          {errors.dateExp?.message && <p className="text-danger fs-6 fw-bold mb-0">{errors.dateExp?.message}</p>}
+                        </div>
+
+                        <div className="w-75">
+                          <label htmlFor="incomes" className="form-label text-primary mb-0">
+                            Ingresos
+                          </label>
+                          <input
+                            {...register("incomes")}
+                            className="form-control mb-0"
+                            type={'number'}
+                            id="incomes"
+                          ></input>
+                          {errors.incomes?.message && <p className="text-danger fs-6 fw-bold mb-0">{errors.incomes?.message}</p>}
+                        </div>
+
+                        <div className="w-75">
+                          <label htmlFor="expenses" className="form-label text-primary mb-0">
+                            Egresos
+                          </label>
+                          <input
+                            {...register("expenses")}
+                            className="form-control mb-0"
+                            type={'number'}
+                            id="expenses"
+                          ></input>
+                          {errors.expenses?.message && <p className="text-danger fs-6 fw-bold mb-0">{errors.expenses?.message}</p>}
+                        </div>
+                      </div>
+
+                      <div className={(values.step === 2 ? "d-flex" : "d-none ") + " flex-column justify-content-center align-items-center w-100 h-100 overflow-auto"}>
+                        <div className="w-75  ">
+                          <label htmlFor="email" className="form-label text-primary mb-0">
+                            Email
+                          </label>
+                          <input
+                            {...register("email")}
+                            type={'text'}
+                            className="form-control"
+                            id="email"
+                          ></input>
+                          {errors.email?.message && <p className="text-danger fs-6 fw-bold mb-0">{errors.email?.message}</p>}
+                        </div>
+
+                        <div className="w-75">
+                          <label htmlFor="password" className="form-label text-primary mb-0">
+                            Contraseña
+                          </label>
+                          <input
+                            {...register("password")}
+                            type="password"
+                            className="form-control"
+                            id="password"
+                          ></input>
+                          {errors.password?.message && <p className="text-danger fs-6 fw-bold mb-0">{errors.password?.message}</p>}
+                        </div>
+                      </div>
+
+                      <div className="d-flex justify-content-between w-75 mt-3 px-3">
+
+
+                        <button
+                          type="button"
+                          className="btn btn-outline-primary"
+                          name="prev"
+                          onKeyPress={handleSteps}
+                        >
+                          Anterior
+                        </button>
+
+
+                        < button
+                          type={"submit"}
+                          className={values.step === 2 ? "d-block btn btn-primary" : "d-none btn btn-primary"}
+                        >
+                          Enviar
+                        </button>
+
+                        <button
+                          type={"button"}
+                          className={values.step === 2 ? "d-none btn btn-primary" : "d-block btn btn-primary"}
+                          name="next"
+                          onClick={handleSteps}
+                        >
+                          Siguiente
+                        </button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="row g-3">
-                        <div className="col-sm-6">
-                            <label for="nombres" className="form-label">
-                                Nombres
-                            </label>
-                            <input
-                                {...register("name")}
-                                type="text"
-                                className="form-control"
-                            ></input>
-                            <p className="text-danger">{errors.name?.message}</p>
-                        </div>
-                        <div className="col-sm-6">
-                            <label for="appelidos" className="form-label">
-                                Apellidos
-                            </label>
-                            <input
-                                {...register("lastName")}
-                                type="text"
-                                className="form-control"
-                            ></input>
-                            <p className="text-danger">{errors.lastName?.message}</p>
-                        </div>
-                        <div className="col-12">
-                            <label for="email" className="form-label">
-                                Correo electronico
-                            </label>
-                            <div className="input-group">
-                                <span className="input-group-text">@</span>
-                                <input
-                                    {...register("mail")}
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="correo@gmail.com"
-                                ></input>
-                                <p className="text-danger">{errors.mail?.message}</p>
-                            </div>
-                        </div>
-
-                        <div className="col-6">
-                            <label for="passw" className="form-label">
-                                Contraseña
-                            </label>
-                            {/* <input {...register('passw')} type="password" className="form-control"></input> */}
-                            <Input
-                                {...register("passw")}
-                                id="passw"
-                                type={values.showPassword ? "text" : "password"}
-                                value={values.password}
-                                className="form-control"
-                                onChange={handleChange("password")}
-                                endAdornment={
-                                    <InputAdornment position="end">
-                                        <IconButton
-                                            aria-label="toggle password visibility"
-                                            onClick={handleClickShowPassword}
-                                            onMouseDown={handleMouseDownPassword}
-                                            edge="end"
-                                        >
-                                            {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                                        </IconButton>
-                                    </InputAdornment>
-                                }
-                            ></Input>
-                            <p className="text-danger">{errors.passw?.message}</p>
-
-                            {/* <label for="passw" className="form-label">Contraseña</label>
-                            <div className="input-group">
-                                <input {...register('passw')} type="password" className="form-control"></input>
-                                <span className="input-group-text show-password fa fa-fw fa-eye" id="basic-addon1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye-fill" viewBox="0 0 16 16">
-                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
-                                    </svg>
-                                </span>
-                                <p>{errors.passw?.messages}</p>
-                            </div> */}
-                        </div>
-
-                        <div className="col-6">
-                            <label for="passw2" className="form-label">
-                                Confirmar contraseña
-                            </label>
-                            <input
-                                {...register("passw2")}
-                                type="password"
-                                className="form-control"
-                            ></input>
-                            <p className="text-danger">{errors.passw2?.message}</p>
-                        </div>
-
-                        <div className="col-md-4">
-                            <label for="typeId" className="form-label">
-                                Tipo de documento
-                            </label>
-                            <select {...register("typeId")} className="form-select">
-                                <option value="">Seleccione una opcion</option>
-                                <option value="cc">Cedula</option>
-                                <option value="pas">Pasaporte</option>
-                                <option value="ce">Cedula de Estranjeria</option>
-                            </select>
-                            <p className="text-danger">{errors.typeId?.message}</p>
-                        </div>
-
-                        <div className="col-md-5">
-                            <label for="id" className="form-label">
-                                Numero de documento
-                            </label>
-                            <input
-                                {...register("id")}
-                                type="text"
-                                className="form-control"
-                            ></input>
-                            <p className="text-danger">{errors.id?.message}</p>
-                        </div>
-
-                        <div className="col-md-3">
-                            <label for="dateExp" className="form-label">
-                                Fecha de expedición
-                            </label>
-                            <input
-                                {...register("dateExp")}
-                                type="date"
-                                className="form-control"
-                            ></input>
-                            <p className="text-danger">{errors.dateExp?.message}</p>
-                        </div>
-
-                        <div className="col-6">
-                            <label for="incomes" className="form-label">
-                                Ingresos
-                            </label>
-                            <input
-                                {...register("incomes")}
-                                type="number"
-                                className="form-control"
-                            ></input>
-                            <p className="text-danger">{errors.incomes?.message}</p>
-                        </div>
-
-                        <div className="col-6">
-                            <label for="expenses" className="form-label">
-                                Egresos
-                            </label>
-                            <input
-                                {...register("expenses")}
-                                type="number"
-                                className="form-control"
-                            ></input>
-                            <p className="text-danger">{errors.expenses?.message}</p>
-                        </div>
-                    </div>
-                    <div className="my-2 "></div>
-
-                    <div className="form-check">
-                        <Controller
-                            name="Checkbox"
-                            control={control}
-                            rules={{ required: true }}
-                            render={({ field }) => (
-                                <Checkbox
-                                    onChange={(e) => field.onChange(e.target.checked)}
-                                    checked={field.value}
-                                />
-                            )}
-                        />
-                        <label className="form-check-label" for="save-info">
-                            Acepta la politica de privacidad de datos
-                        </label>
-                    </div>
-
-                    <button className="w-100 btn btn-primary btn-lg" type="submit">
-                        Registrarse
-                    </button>
-                </form>
+                <div className="col-12 col-lg-4 d-none bg-primary rounded-end d-lg-flex justify-content-center align-items-center">
+                  <img src={CajaSocialLogoSmFormat} alt="" srcset="" className="w-100" />
+                </div>
+              </div>
             </div>
-        </>
+          </div>
+        </div >
+      </>
     );
-};
+  };
 
-export default Register;
+  export default Register;

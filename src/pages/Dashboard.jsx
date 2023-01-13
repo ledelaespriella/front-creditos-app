@@ -7,8 +7,6 @@ import LogOut from '../components/buttons/logout'
 const flag = false;
 
 const Dashboard= (props) => {
-
-  console.log(props)
  
   return (
     <section className="h-100">

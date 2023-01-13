@@ -5,10 +5,10 @@ const Usuarios = () => {
   return (
     <Fragment>
       <div>
-        <Link to="/usuariofinal">Usuario final</Link>
+        <Link to="/final">Usuario final</Link>
       </div>
       <div>
-        <Link to="/adminUI">Usuario interno</Link>
+        <Link to="/inter">Usuario interno</Link>
       </div>
       <div>
         <Link to="/admin">Usuario administrativo</Link>
