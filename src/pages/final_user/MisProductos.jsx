@@ -9,12 +9,12 @@ export default function MisProductos() {
       <div className="d-flex flex-column justify-content-between">
         <Header />
         <div className="d-flex justify-content-center p-4 w-100">
-          <div className='d-flex flex-column bg-white h-100 w-75 rounded-3 shadow-sm'>
+          <div className='d-flex flex-column bg-white h-100 w-75 p-1 rounded-3 shadow-sm'>
             <h1 className='text-primary h1 mt-2 ms-2'>Mis productos</h1>
-            <div className='container-fluid'>
+            <div className='container '>
               <form action="">
-                <div className='row w-100'>
-                  <div className='col-lg-3 d-flex gap-1 align-items-end'>
+                <div className='row'>
+                  <div className='col-lg-3 d-flex justify-content-center gap-2 rounded-1 p-1 align-items-end bg-light'>
                     <div>
                       <label htmlFor="productId" className="form-label text-primary mb-0">
                         Numero de producto
@@ -29,7 +29,6 @@ export default function MisProductos() {
                     <button className='btn btn-primary btn-sm' type='button'>
                       <i class="bi bi-search me-2 "></i>
                     </button>
-                    <div className='v-line bg-primary'></div>
                   </div>
 
                   <div className='col-lg-3'>
