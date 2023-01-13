@@ -1,0 +1,12 @@
+[
+    {
+        "name":"Julian Alveiro Mira Montoya",
+        "password": "Admin1",
+        "rol": "Admin"
+    },
+    {
+        "name":"Juan Alvarez",
+        "password": "Admin1",
+        "rol": "FinalUser"
+    }
+]

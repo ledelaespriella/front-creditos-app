@@ -1,12 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/custom/bootstrap.min.css';
+// eslint-disable-next-line
+import './assets/custom/style.css';
+// eslint-disable-next-line
+import $ from 'jquery';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import 'bootstrap/dist/js/bootstrap.bundle';
+import 'popper.js';
+import 'iconify';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import {BrowserRouter} from 'react-router-dom';
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
